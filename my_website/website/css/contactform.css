@@ -1,0 +1,23 @@
+#contactform input[type=text], #contactform textarea {
+  font-family: "Lato";
+  font-size: 14px;
+  width: 100%;
+  padding: 10px;
+  margin: 15px;
+  border-color: #4a820c;
+  border-radius: 5px;
+  background-color: inherit;
+  border-style: solid;
+  color: white;
+}
+
+
+#contactform textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+
+#contactform button {
+  width: fit-content;
+}
