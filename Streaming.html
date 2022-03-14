@@ -3,7 +3,6 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/stream.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -11,7 +10,7 @@
   </head>
   <body>
       <ul class="navigatorlist">
-        <li class="navelements" ><a href="home.html">Home</a></li>
+        <li class="navelements" ><a href="index.html">Home</a></li>
         <li class="navelements"><a href="about_me.html">About me</a></li>
         <li class="drp">
           <div class="currentnavelement dropdown" id="dropdownmenu" onclick="dropdownMenuonclick()">My Playground 
@@ -31,6 +30,12 @@
       </ul>
 
     <div class="contentcontainer">
+      <div id="streaminfo">
+        <p>This only asks for permission to use your camera or to share your screen.
+        It does not stream it anywhere.
+        I am at the beginning of my learning Process for WebRTC and I also have no TURN/STUN Server yet to connect clients.</p>
+      </div>
+
       <video id="video" playsinline autoplay controls muted></video>
 
       <div id="selectors">
@@ -53,7 +58,6 @@
     </div>
     <script src="js/streaming.js"></script>
 
-    </div>
       <footer>
         <ul>
           <li>
@@ -66,9 +70,6 @@
             <i style="cursor: pointer;" class="fa fa-envelope" onclick="sendMail()"></i>
           </li>
         </ul>
-      </div>
-
-
+      </footer>
   </body>
-
 </html>

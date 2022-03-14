@@ -26,31 +26,56 @@ function setAudioInput(input) {
 }
 
 function gotDevices(deviceInfos) {
+
+  const currentVideoinput = videoInput.value;
+  const currentAudioinput = audioInput.value;
+
   while(videoInput.firstChild) {
     videoInput.removeChild(videoInput.firstChild);
   }
   while(audioInput.firstChild) {
     audioInput.removeChild(audioInput.firstChild);
   }
- 
+
   for(let i = 0; i < deviceInfos.length; i++) {
-    console.log(deviceInfos[i]);
     var option = document.createElement('option');
-    if( "videoinput" == deviceInfos[i].kind ) {
-      option.value = deviceInfos[i].deviceId;
+
+    if (deviceInfos[i].deviceId == currentVideoinput) {
+      console.log("currentVideoinput: " + currentVideoinput)
+      option.value = currentVideoinput;
       option.text = deviceInfos[i].label || "cam " + i;
-      //option.style.fontStyle =  '"Lato"';
       videoInput.appendChild(option);
+
     }
-    else if( "audioinput" == deviceInfos[i].kind ) {
-      option.value = deviceInfos[i].deviceId;
+    if (deviceInfos[i].deviceId == currentAudioinput) {
+      console.log("currentAudioinput: " + currentAudioinput)
+      option.value = currentAudioinput;
       option.text = deviceInfos[i].label || "input " + i;
-      //option.style.fontStyle =  '"Lato"';
       audioInput.appendChild(option);
+
+    }
+  }
+
+  for(let i = 0; i < deviceInfos.length; i++) {
+    if( deviceInfos[i].deviceId !== currentVideoinput && deviceInfos[i].deviceId !== currentAudioinput ) {
+      var option = document.createElement('option');
+
+      console.log(deviceInfos[i]);
+      
+      if( "videoinput" == deviceInfos[i].kind ) {
+        option.value = deviceInfos[i].deviceId;
+        option.text = deviceInfos[i].label || "cam " + i;
+        videoInput.appendChild(option);
+      }
+      else if( "audioinput" == deviceInfos[i].kind ) {
+        option.value = deviceInfos[i].deviceId;
+        option.text = deviceInfos[i].label || "input " + i;
+        audioInput.appendChild(option);
+      }
     }
   }
 }
-
+ 
 function inputChange() {
   console.log("input change");
   if (window.stream) {

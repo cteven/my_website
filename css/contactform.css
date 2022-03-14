@@ -15,6 +15,7 @@
 #contactform textarea {
   min-height: 150px;
   resize: vertical;
+  border-width: 2px;
 }
 
 

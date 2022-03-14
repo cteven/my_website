@@ -128,6 +128,7 @@ function errorCallback(error) {
 
   var errorText1 = document.createTextNode('An error occured!');
   var errorText2 = document.createTextNode('Try again by reloading the page.');
+  var errorText3 = document.createTextNode('You might need to unblock the permissions for this Website to use your location.');
 
   var container = document.getElementsByClassName('contentcontainer')[0];
 
@@ -135,9 +136,11 @@ function errorCallback(error) {
   container.appendChild(p)
 
   var p = document.createElement('p');
+  p.appendChild(errorText2);
+  container.appendChild(p)
 
   var p = document.createElement('p');
-  p.appendChild(errorText2);
+  p.appendChild(errorText3);
   container.appendChild(p)
 
 
