@@ -5,7 +5,6 @@ let marker;
 let bounds;
 
 $(document).ready( () => {
-  console.log('test1');
   try {
     var bhtCoords = new google.maps.LatLng(latBHT, lngBHT);
     var mapProp = {
@@ -31,7 +30,6 @@ $(document).ready( () => {
     mapheadline.parentElement.removeChild(mapheadline);
 
 
-    console.log('test');
     var mapbutton = document.getElementById('mapbutton');
     mapbutton.parentElement.removeChild(mapbutton);
 
