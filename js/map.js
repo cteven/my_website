@@ -6,7 +6,7 @@ let bounds;
 
 $(document).ready( () => {
   console.log('test1');
-  if(google) {
+  try {
     var bhtCoords = new google.maps.LatLng(latBHT, lngBHT);
     var mapProp = {
       center: bhtCoords,
@@ -22,7 +22,7 @@ $(document).ready( () => {
     
     bounds.extend(marker.position);
   }
-  else {
+  catch(err) {
     var errorcolor = '#fc8403';
     var map = document.getElementById('map');
     map.parentElement.removeChild(map);
