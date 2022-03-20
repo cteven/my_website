@@ -50,7 +50,7 @@ $(document).ready( () => {
     contentcontainer.appendChild(p);
 
     var p = document.createElement('p');
-    var text3 = document.createTextNode('You can clone or zip the repository from my GitHub if you want.');
+    var text3 = document.createTextNode('You can clone or zip the repository from my GitHub and try it directly on your Computer if you want.');
     p.appendChild(text3);
     contentcontainer.appendChild(p);
 
