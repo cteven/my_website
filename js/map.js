@@ -5,22 +5,62 @@ let marker;
 let bounds;
 
 $(document).ready( () => {
-  var bhtCoords = new google.maps.LatLng(latBHT, lngBHT);
-  var mapProp = {
-    center: bhtCoords,
-    zoom: 10
-  };
-  map = new google.maps.Map(document.getElementById("map"),mapProp);
- 
-  marker = new google.maps.Marker({
-              position: bhtCoords,
-              map });
-
-  bounds = new google.maps.LatLngBounds();
+  console.log('test1');
+  if(google) {
+    var bhtCoords = new google.maps.LatLng(latBHT, lngBHT);
+    var mapProp = {
+      center: bhtCoords,
+      zoom: 10
+    };
+    map = new google.maps.Map(document.getElementById("map"),mapProp);
   
-  bounds.extend(marker.position);
-  
+    marker = new google.maps.Marker({
+                position: bhtCoords,
+                map });
 
+    bounds = new google.maps.LatLngBounds();
+    
+    bounds.extend(marker.position);
+  }
+  else {
+    var errorcolor = '#fc8403';
+    var map = document.getElementById('map');
+    map.parentElement.removeChild(map);
+
+    var mapheadline = document.getElementById('mapheadline');
+    mapheadline.parentElement.removeChild(mapheadline);
+
+
+    console.log('test');
+    var mapbutton = document.getElementById('mapbutton');
+    mapbutton.parentElement.removeChild(mapbutton);
+
+    var contentcontainer = document.getElementsByClassName('contentcontainer')[0];
+    contentcontainer.style.fontSize = '20px';
+    contentcontainer.style.color = errorcolor;
+
+    var p = document.createElement('p');
+    var text1 = document.createTextNode('Loading Google Maps was not successful.');
+    p.appendChild(text1);
+    contentcontainer.appendChild(p);
+
+    var p = document.createElement('p');
+    var text2 = document.createTextNode('This might be because this website does not use an APIKey for Google Maps.');
+    p.appendChild(text2);
+    contentcontainer.appendChild(p);
+
+    var p = document.createElement('p');
+    var text3 = document.createTextNode('You can clone or zip the repository from my GitHub if you want.');
+    p.appendChild(text3);
+    contentcontainer.appendChild(p);
+
+    var link = document.createElement('a');
+    link.href = "https://github.com/cteven/my_website";
+    link.innerHTML = "click here!";
+    link.style.color = errorcolor;
+    contentcontainer.appendChild(link);
+
+  }
 })
 
 function getUserLocation() {
@@ -111,18 +151,7 @@ function showDistance(position) {
 }
 
 function errorCallback(error) {
-  var mapbutton = document.getElementById('mapbutton');
-  mapbutton.innerHTML = "Show Location and Distance to BHT";
-
-  //removing hover effect
-  mapbutton.classList.remove('buttonelement');
-  
-  //adding tooltip to the disabled button
-  var tooltipText = document.createTextNode('disabled');
-  var tooltip = document.createElement('span');
-  tooltip.appendChild(tooltipText);
-  tooltip.classList.add('tooltip');
-  mapbutton.appendChild(tooltip);
+  mapbuttonToolTip();
 
   var p = document.createElement('p');
 
@@ -145,15 +174,30 @@ function errorCallback(error) {
 
 
   switch(error.code) {
-    case error.PERMISSION_DENIED:
+    case error.PERMISSION_DENIED:     // PERMISSION_DENIED == 1
       console.log('permission denied');
       break;
-    case error.POSITION_UNAVAILABLE:
+    case error.POSITION_UNAVAILABLE:  // POSITION_UNAVAILABLE == 2
       console.log('position unavailable');
       console.log(error.message);
       break;
-    case error.TIMEOUT:
+    case error.TIMEOUT:               // TIMEOUT == 3
       console.log('timeout');
       break;
   }
+}
+
+function mapbuttonToolTip() {
+  var mapbutton = document.getElementById('mapbutton');
+  mapbutton.innerHTML = "Show Location and Distance to BHT";
+
+  //removing hover effect
+  mapbutton.classList.remove('buttonelement');
+  
+  //adding tooltip to the disabled button
+  var tooltipText = document.createTextNode('disabled');
+  var tooltip = document.createElement('span');
+  tooltip.appendChild(tooltipText);
+  tooltip.classList.add('tooltip');
+  mapbutton.appendChild(tooltip);
 }
