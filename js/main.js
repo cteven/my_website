@@ -8,7 +8,7 @@ $(document).ready(() => {
   dropdownmenu = document.getElementById('dropdownmenu');
   dropdowncontent = document.getElementById('content');
 
-  document.getElementById('backgroundvideo').playbackRate = 3;
+  
 
   /*window.onclick = function() {
     console.log(dropdowncontent.style.display);
