@@ -1,4 +1,4 @@
-let map;
+var gmap;
 let latBHT = 52.545175;
 let lngBHT = 13.351628;
 let marker;
@@ -11,11 +11,11 @@ $(document).ready( () => {
       center: bhtCoords,
       zoom: 10
     };
-    map = new google.maps.Map(document.getElementById("map"),mapProp);
-  
+    gmap = new google.maps.Map(document.getElementById("map"),mapProp);
+    console.log(gmap);
     marker = new google.maps.Marker({
                 position: bhtCoords,
-                map });
+                gmap });
 
     bounds = new google.maps.LatLngBounds();
     
@@ -91,7 +91,8 @@ function showDistance(position) {
 
   bounds.extend(marker2.position);
 
-  map.fitBounds(bounds);
+  console.log(gmap);
+  gmap.fitBounds(bounds);
 
   marker.setMap(null);
 
@@ -120,7 +121,7 @@ function showDistance(position) {
       } ]
   });
 
-  p.setMap(map);
+  p.setMap(gmap);
 
 
   var mapbutton = document.getElementById('mapbutton');
