@@ -11,12 +11,12 @@ $(document).ready( () => {
       center: bhtCoords,
       zoom: 10
     };
-    gmap = new google.maps.Map(document.getElementById("map"),mapProp);
-    console.log(gmap);
+    gmap = new google.maps.Map(document.getElementById("map"), mapProp);
+    
     marker = new google.maps.Marker({
                 position: bhtCoords,
-                gmap });
-
+                map: gmap,
+            });
     bounds = new google.maps.LatLngBounds();
     
     bounds.extend(marker.position);
@@ -29,10 +29,10 @@ $(document).ready( () => {
     var mapheadline = document.getElementById('mapheadline');
     mapheadline.parentElement.removeChild(mapheadline);
 
-
     var mapbutton = document.getElementById('mapbutton');
     mapbutton.parentElement.removeChild(mapbutton);
 
+    // there is only one so we can use [0]
     var contentcontainer = document.getElementsByClassName('contentcontainer')[0];
     contentcontainer.style.fontSize = '20px';
     contentcontainer.style.color = errorcolor;
@@ -48,7 +48,7 @@ $(document).ready( () => {
     contentcontainer.appendChild(p);
 
     var p = document.createElement('p');
-    var text3 = document.createTextNode('You can clone or zip the repository from my GitHub and try it directly on your Computer if you want.');
+    var text3 = document.createTextNode('You can clone or zip the repository from my GitHub and try it directly on your Computer if you really want to see the map :)');
     p.appendChild(text3);
     contentcontainer.appendChild(p);
 
