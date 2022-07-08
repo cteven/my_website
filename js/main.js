@@ -75,13 +75,3 @@ function sendMailWithNameMessage() {
 function sendMail() {
   window.open('mailto:steven.schulz@outlook.com?subject=Mail from Website', "_self");
 }
-
-function httpGet(theUrl)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-} 
-
-console.log(httpGet('https://www.cape-suite.eu/service-catalogue/api/v2/services'));
