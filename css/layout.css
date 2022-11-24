@@ -5,7 +5,7 @@ html {
 }
 
 body {
-  background-color: #2b2b2b;
+  background-color: #223333;
   display: flex;
   justify-content: center;
 }
@@ -19,7 +19,7 @@ body {
   display: flex;
   justify-content: center;
   min-height: calc(16px + 8px);
-  background-color: #001f47;
+  background-color: #3e6666;
   text-align: center;
   padding: 0;
   border-radius: 0 0 5px 5px;
@@ -27,7 +27,7 @@ body {
 }
 
 .navelements {
-  background-color: #001f47;
+  background-color: #3e6666;
   color: white;
   padding: 5px;
   display: inline;
@@ -68,7 +68,7 @@ body {
   position: absolute;
   left: 0;
   color: white;
-  background-color: #001f47;
+  background-color: #3e6666;
   min-width: 180px;
   z-index: 1;
   word-break: break-word;
@@ -118,7 +118,7 @@ body {
 
 .contentcontainer {
   position: absolute;
-  text-align: center;
+  text-align: center; 
   top: 100px;
   padding-bottom: 70px;
   color: white;
@@ -128,7 +128,7 @@ body {
   margin: 0;
   margin-left: auto;
   margin-right: auto;
-  background-color: #001f47;
+  background-color: #223333;
   border-radius: 5px;
   max-width: 500px;
   width: fit-content;
@@ -145,7 +145,7 @@ body {
   color: white;
   font-size: medium;
   margin: 5px;
-  background-color: #001f47;
+  background-color: #3e6666;
   border-radius: 5px;
   border-style: hidden;
   padding: 5px;
@@ -157,7 +157,7 @@ body {
   width: auto;
   margin-left: 10px;
   padding: 3px;
-  background-color: #001f47;
+  background-color: #3e6666;
   border-radius: 5px;
   border-style: hidden;
   position: absolute;
@@ -192,7 +192,7 @@ body {
   margin-top: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: transparent #001f47 transparent transparent;
+  border-color: transparent #3e6666 transparent transparent;
 }
 
 .contentcontainer button:hover .tooltip{
@@ -230,7 +230,7 @@ footer {
   bottom: 0;
   width: 100%;
   height: 60px;
-  background-color: #001f47;
+  background-color: #3e6666;
   border-radius: 5px 5px 0 0;
 }
 
@@ -263,7 +263,7 @@ footer ul li a {
 }
 
 .contentcontainer select {
-  background-color: #001f47;
+  background-color: #3e6666;
   margin: 5px;
   padding: 5px;
   border-radius: 5px;
