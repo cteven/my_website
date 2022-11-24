@@ -107,8 +107,13 @@ body {
   padding: 2px 5px 2px 5px;
 }
 
-#aboutme, #contactform{
-  top: 20%;
+#aboutme {
+  top: 15%;
+}
+
+#aboutme h3 {
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .contentcontainer {
