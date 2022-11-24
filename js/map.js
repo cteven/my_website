@@ -1,4 +1,4 @@
-let map;
+var gmap;
 let latBHT = 52.545175;
 let lngBHT = 13.351628;
 let marker;
@@ -11,12 +11,12 @@ $(document).ready( () => {
       center: bhtCoords,
       zoom: 10
     };
-    map = new google.maps.Map(document.getElementById("map"),mapProp);
-  
+    gmap = new google.maps.Map(document.getElementById("map"), mapProp);
+    
     marker = new google.maps.Marker({
                 position: bhtCoords,
-                map });
-
+                map: gmap,
+            });
     bounds = new google.maps.LatLngBounds();
     
     bounds.extend(marker.position);
@@ -29,10 +29,10 @@ $(document).ready( () => {
     var mapheadline = document.getElementById('mapheadline');
     mapheadline.parentElement.removeChild(mapheadline);
 
-
     var mapbutton = document.getElementById('mapbutton');
     mapbutton.parentElement.removeChild(mapbutton);
 
+    // there is only one so we can use [0]
     var contentcontainer = document.getElementsByClassName('contentcontainer')[0];
     contentcontainer.style.fontSize = '20px';
     contentcontainer.style.color = errorcolor;
@@ -48,7 +48,7 @@ $(document).ready( () => {
     contentcontainer.appendChild(p);
 
     var p = document.createElement('p');
-    var text3 = document.createTextNode('You can clone or zip the repository from my GitHub and try it directly on your Computer if you want.');
+    var text3 = document.createTextNode('You can clone or zip the repository from my GitHub and try it directly on your Computer if you really want to see the map :)');
     p.appendChild(text3);
     contentcontainer.appendChild(p);
 
@@ -91,7 +91,8 @@ function showDistance(position) {
 
   bounds.extend(marker2.position);
 
-  map.fitBounds(bounds);
+  console.log(gmap);
+  gmap.fitBounds(bounds);
 
   marker.setMap(null);
 
@@ -120,7 +121,7 @@ function showDistance(position) {
       } ]
   });
 
-  p.setMap(map);
+  p.setMap(gmap);
 
 
   var mapbutton = document.getElementById('mapbutton');

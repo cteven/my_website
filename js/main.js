@@ -3,20 +3,22 @@ let dropdownmenu;
 let dropdowncontent;
 
 $(document).ready(() => {
-  console.log('ready');
   arrow = document.getElementById('arrow');
   dropdownmenu = document.getElementById('dropdownmenu');
   dropdowncontent = document.getElementById('content');
 
   
-
-  /*window.onclick = function() {
-    console.log(dropdowncontent.style.display);
-    if(dropdowncontent.style.display == 'block')
-      dropdowncontent.style.display = 'none';
-  }*/
+  // click on anything but the dropdown will hide it
+  window.onclick = function(element) {
+    target = element.target;
+    console.log(element);
+    if(target != arrow && target != dropdownmenu && target != dropdowncontent){
+      console.log(dropdowncontent.style.display);
+      if(dropdowncontent.style.display == 'block')
+        dropdowncontent.style.display = 'none';
+      }
+  }
 });
-
 
 function dropdownMenuonclick() {
   console.log('clicked');
